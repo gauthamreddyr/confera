@@ -1,0 +1,21 @@
+.shell{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 64px auto;
+    grid-template-areas:
+      "header header"
+      "sidebar content";
+    background:#f8fafc;
+    color:#0b1220;
+    font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  
+  /* areas */
+  :global(.header-area) { grid-area: header; }
+  :global(.sidebar-area){ grid-area: sidebar; }
+  .content{
+    grid-area: content;
+    padding: 24px 28px;
+  }
+  

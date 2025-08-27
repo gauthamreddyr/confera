@@ -1,0 +1,33 @@
+:root{
+    --bg:#ffffff;
+    --text:#0b1220;
+    --muted:#6b7280;
+    --border:#d1d5db;
+    --primary:#0e71eb;       /* Zoom-ish blue */
+    --primary-hover:#0b5cd6;
+    --btn-radius:10px;
+    --btn-height:44px;
+    --content-max:560px;
+  }
+  
+  *{box-sizing:border-box}
+  html,body,#root{height:100%}
+  
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                 Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji",
+                 "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  
+  button{ font:inherit }
+  
+  :focus-visible{
+    outline: 3px solid rgba(14,113,235,.35);
+    outline-offset: 2px;
+  }
+  

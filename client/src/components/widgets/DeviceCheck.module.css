@@ -1,0 +1,22 @@
+.card{
+    background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px;
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .title{ margin:0; font-size:16px; }
+  .rows{ display:flex; gap:16px; }
+  .status{ display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; column-gap:10px; row-gap:2px; align-items:center; }
+  .badge{
+    display:inline-grid; place-items:center;
+    width:36px; height:24px; border-radius:999px; font-weight:800; font-size:12px;
+  }
+  .label{ font-weight:700; }
+  .hint{ font-size:12px; }
+  .btn{
+    align-self:flex-start;
+    height:34px; padding:0 12px; border-radius:8px; border:1px solid #d1d5db; background:#fff; font-weight:700;
+    transition: background-color .16s, transform .16s, box-shadow .16s;
+  }
+  .btn:hover{ background:#f8fafc; transform: translateY(-1px); box-shadow:0 6px 16px rgba(2,6,23,.06); }
+  .primary{ background:#0e71eb; color:#fff; border-color:#0e71eb; }
+  .primary:hover{ background:#0b5cd6; box-shadow:0 6px 16px rgba(14,113,235,.28); }
+  
