@@ -1,0 +1,13 @@
+﻿# deps
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# builds
+client/dist/
+server/dist/
+
+# env files
+.env
+client/.env
+server/.env
