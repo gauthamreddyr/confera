@@ -1,34 +1,34 @@
-// Confera/client/src/lib/meetings.js
-const BASE = ""; // use Vite proxy
+import { API_BASE } from "./env.js";
 
-const json = async (res) => {
-  let data = null;
-  try { data = await res.json(); } catch {}
-  if (!res.ok) throw new Error(data?.error || "Request failed");
+async function j(r) {
+  let data; try { data = await r.json(); } catch {}
+  if (!r.ok) throw new Error((data && data.error) || `Request failed (${r.status})`);
   return data;
-};
+}
 
-export async function createMeeting({ topic, password }) {
-  const res = await fetch(`${BASE}/api/meetings`, {
+export async function createMeeting(topic, password) {
+  const r = await fetch(`${API_BASE}/api/meetings`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
     credentials: "include",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ topic, password }),
   });
-  return json(res);
+  return j(r);
 }
+
 export async function getMeeting(code) {
-  const res = await fetch(`${BASE}/api/meetings/${encodeURIComponent(code)}`, {
+  const r = await fetch(`${API_BASE}/api/meetings/${code}`, {
     credentials: "include",
   });
-  return json(res);
+  return j(r);
 }
+
 export async function joinMeeting(code, password) {
-  const res = await fetch(`${BASE}/api/meetings/${encodeURIComponent(code)}/join`, {
+  const r = await fetch(`${API_BASE}/api/meetings/${code}/join`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
     credentials: "include",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ password }),
   });
-  return json(res);
+  return j(r);
 }

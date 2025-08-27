@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./MeetRoom.module.css";
 import { getMeeting } from "../lib/meetings.js";
+import { SOCKET_URL } from "../lib/env.js";
 import { io } from "socket.io-client";
 import { useAuth } from "../context/AuthContext.jsx";
 
@@ -85,7 +86,7 @@ export default function MeetRoom() {
       micTrackRef.current = ms.getAudioTracks()[0] || null;
       rebuildPreview();
 
-      const s = io("/", { withCredentials: true, path: "/socket.io" });
+      const s = io(SOCKET_URL, { withCredentials: true, path: "/socket.io" });
       socketRef.current = s;
 
       s.on("connect", () => s.emit("join-room", { room: code, name: user?.name || "User" }));
